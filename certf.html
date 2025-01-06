@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Certificates and Experience</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Certificates Section -->
+            <section class="certificate-section">
+                <h2>Professional Certifications</h2>
+                <div class="certificate-carousel">
+                    <div class="certificate-slide">
+                        <embed src="assets/res/1707185410572.pdf" type="application/pdf" />
+                    </div>
+                    <div class="certificate-slide">
+                        <embed src="certificate2.pdf" type="application/pdf" />
+                    </div>
+                    <div class="certificate-slide">
+                        <embed src="certificate3.pdf" type="application/pdf" />
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev-btn">❮</button>
+                    <button class="next-btn">❯</button>
+                </div>
+                <script>
+                    const slides = document.querySelectorAll('.certificate-slide');
+                    const prevBtn = document.querySelector('.prev-btn');
+                    const nextBtn = document.querySelector('.next-btn');
+            
+                    let currentIndex = 0;
+            
+                    function updateSlidePosition() {
+                        slides.forEach((slide, index) => {
+                            slide.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+                        });
+                    }
+            
+                    updateSlidePosition();
+            
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                        updateSlidePosition();
+                    });
+            
+                    nextBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                        updateSlidePosition();
+                    });
+                </script>
+            </section>
+            
+
+            <!-- Experience Section -->
+            <div class="experience-section">
+                <h2>Professional Experience</h2>
+                <div class="experience-cards">
+                    <!-- Experience Card 1 -->
+                    <div class="experience-card">
+                        <h3>Software Developer</h3>
+                        <span>Company XYZ (2022 - Present)</span>
+                        <p>Worked on developing scalable web applications using React and Node.js. Collaborated with cross-functional teams to deliver robust solutions.</p>
+                    </div>
+                    <!-- Experience Card 2 -->
+                    <div class="experience-card">
+                        <h3>Intern - Cybersecurity</h3>
+                        <span>Company ABC (2021 - 2022)</span>
+                        <p>Assisted in performing penetration testing and vulnerability assessments. Developed tools to automate log analysis and threat detection.</p>
+                    </div>
+                    <!-- Experience Card 3 -->
+                    <div class="experience-card">
+                        <h3>Chief Marketing Officer</h3>
+                        <span>Startup Afocas (2019 - 2021)</span>
+                        <p>Led marketing efforts, optimized SEO strategies, and increased social media engagement by 40%. Focused on building brand awareness.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+</body>
+</html>
